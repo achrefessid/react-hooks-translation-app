@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import imageEng from "./assets/images/thanks-en.png"; 
+import imageFr from "./assets/images/thanks-fr.png"; 
+import imageAr from "./assets/images/thanks-ar.png"; 
 
 function App() {
   const { t } = useTranslation();
@@ -24,8 +27,12 @@ function App() {
             Arabe
          </button>
         </nav>
+
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={ //
+            localStorage.getItem('i18nextLng') === "en" ? imageEng : 
+            localStorage.getItem("i18nextLng") === "fr" ? imageFr : 
+            imageAr} alt="logo" />          
           <p>
             <h3>{t('Thanks.1')}</h3>  <h3>{t('Why.1')}</h3> 
           </p>
